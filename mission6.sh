@@ -3,7 +3,8 @@
 number_of_wallets="$(ls -ld $HOME/nodewallets/*.pem | wc -l)"
 
 # Continuously send transactions between start and end time
-mission_start_timestamp=1577098800      # Mon 23 Dec 2019 11:00 UTC
+# mission_start_timestamp=1577098800      # Mon 23 Dec 2019 11:00 UTC
+mission_start_timestamp=0               # START IMMEDIATELY
 mission_end_timestamp=1577102700        # Mon 23 Dec 2019 12:05 UTC
 timestamp=$(date -u +%s)
 
