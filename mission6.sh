@@ -53,7 +53,7 @@ for i in $( seq 0 $((number_of_wallets - 1)) ); do
         contents_initialBalancesSk=$(<"$HOME/nodewallets/node-$i.pem")
         wallet_address="${contents_initialBalancesSk:27:64}"
         balance="$(./erd balance $wallet_address | awk 'NF>1{print $NF}')"
-        max_to_spend=$(awk "BEGIN {print $balance-10}")
+        max_to_spend=$(awk "BEGIN {print $balance-10.1}")
         do_transaction=$(echo $max_to_spend | awk '{if ($1 > 0) print 1; else print 0}')
         if [[ $do_transaction == 1 ]]; then
                 ./erd transfer --wallet $HOME/nodewallets/node-$i.pem --to $receiving_wallet --amount $max_to_spend
